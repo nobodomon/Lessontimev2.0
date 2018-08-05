@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "722159833325",
+    "firebase_url": "https://lessontime-b3a25.firebaseio.com",
+    "project_id": "lessontime-b3a25",
+    "storage_bucket": "lessontime-b3a25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722159833325:android:afc176d451740c7b",
+        "android_client_info": {
+          "package_name": "nypattendance.lessontime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722159833325-1rmv5566f15k31uupgq60oa8og3ud2k7.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "722159833325-1rmv5566f15k31uupgq60oa8og3ud2k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqKqv_GgOohKy7u1PhEKj83demcXuFDr8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
