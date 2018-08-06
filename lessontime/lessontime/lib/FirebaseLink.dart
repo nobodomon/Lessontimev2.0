@@ -14,7 +14,7 @@ class FirebaseLink{
 
   static Future<DocumentSnapshot> getUserOnceFs(String email) async{
     Firestore _fs = Firestore.instance;
-    String trimmed = email.split("@")[0];
+    String trimmed = email.split("@")[0].toUpperCase();
     print(trimmed + " is the search string");
     return _fs.collection("Users").document(trimmed.toUpperCase()).get();
   }
@@ -30,24 +30,24 @@ class FirebaseLink{
 
   static Future<Stream<DocumentSnapshot>> getUserStreamFs(String email) async{
     Firestore _fs = Firestore.instance;
-      String trimmed = email.substring(0,email.length-18).toUpperCase();
+      String trimmed = email.split("@")[0].toUpperCase();
     return _fs.collection("Users").document(trimmed).snapshots();
   }
 
   static Future<Stream<DocumentSnapshot>> getUserStreamFsAdminNo(String email) async{
     Firestore _fs = Firestore.instance;
-      String trimmed = email.substring(0,email.length-18).toUpperCase();
+      String trimmed = email.split("@")[0].toUpperCase();
     return _fs.collection("Users").document(trimmed).snapshots();
   }
   
 
   static void setLastLogin(String adminNo){
-      String trimmed = adminNo.substring(0,adminNo.length-18).toUpperCase();
+      String trimmed = adminNo.split("@")[0].toUpperCase();
       Firestore.instance.collection("Users").document(trimmed).setData({"lastLogin": DateTime.now().toIso8601String()}, merge: true);
   }
 
   static void setLogonIP(String adminNo) async{
-      String trimmed = adminNo.substring(0,adminNo.length-18).toUpperCase();
+      String trimmed = adminNo.split("@")[0].toUpperCase();
       String ip = await getIP();
       Firestore.instance.collection("Users").document(trimmed).setData({"logonIP": ip}, merge: true);
   }
@@ -56,7 +56,7 @@ class FirebaseLink{
     if(setDeviceDetails){
       return await getDeviceDetails().then((Device dev){
         adminNo.toUpperCase();
-        String trimmed = adminNo.substring(0,adminNo.length-18).toUpperCase();
+        String trimmed = adminNo.split("@")[0].toUpperCase();
         Users toAdd = new Users(adminNo, userType);
 
         Firestore.instance.collection("Users").document(trimmed).setData(toAdd.toJson());
@@ -65,7 +65,7 @@ class FirebaseLink{
       });
     }else{
       adminNo.toUpperCase();
-        String trimmed = adminNo.substring(0,adminNo.length-18).toUpperCase();
+        String trimmed = adminNo.split("@")[0].toUpperCase();
         Users toAdd = new Users(adminNo, userType);
 
         Firestore.instance.collection("Users").document(trimmed).setData(toAdd.toJson());
@@ -74,8 +74,10 @@ class FirebaseLink{
   }
 
 
+
+
   static void setUserSchoolAndCourse(String adminNo, String school, String course, String group){
-    Firestore.instance.collection("Users").document(adminNo).setData({"school": school, "course": course, "group": group}, merge:  true);
+    Firestore.instance.collection("Users").document(adminNo.toUpperCase()).setData({"school": school, "course": course, "group": group}, merge:  true);
   }
 
   static Future<Device> getDeviceDetails() async {

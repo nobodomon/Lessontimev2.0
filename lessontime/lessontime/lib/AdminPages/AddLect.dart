@@ -41,7 +41,7 @@ class _AddLectState extends State<AddLect> {
     if (validateAndSave()) {
       try {
         var userId = 
-        await widget.auth.createUser(_adminNo,_email, _adminNo,1, false);
+        await widget.auth.createUser(_adminNo,_email, _email,1, false);
             
         final form = lectKey.currentState;
         setState(() {
@@ -66,6 +66,7 @@ class _AddLectState extends State<AddLect> {
   Widget username() {
     Color select = Colors.indigo[400];
     return padded(child: new TextFormField(
+      style: new TextStyle(color: Colors.white),
         key: new Key('Admin number'),
         decoration: new InputDecoration(
           isDense: true,
@@ -75,7 +76,7 @@ class _AddLectState extends State<AddLect> {
           ),
           prefixIcon: new Padding(
             padding: EdgeInsets.only(right: 15.0),
-            child: Icon(Icons.group_add),
+            child: Icon(Icons.group_add, color: Colors.white),
           ),
           fillColor: select,
           filled: true,
@@ -94,6 +95,7 @@ class _AddLectState extends State<AddLect> {
   Widget email() {
     Color select = Colors.indigo[400];
     return padded(child: new TextFormField(
+      style: new TextStyle(color: Colors.white),
         key: new Key('Admin number'),
         decoration: new InputDecoration(
           isDense: true,
@@ -103,7 +105,7 @@ class _AddLectState extends State<AddLect> {
           ),
           prefixIcon: new Padding(
             padding: EdgeInsets.only(right: 15.0),
-            child: Icon(Icons.email),
+            child: Icon(Icons.email, color: Colors.white,),
           ),
           fillColor: select,
           filled: true,

@@ -65,6 +65,7 @@ class _AddAdminState extends State<AddAdmin> {
 Widget username() {
     Color select = Colors.indigo[400];
     return padded(child: new TextFormField(
+      style: new TextStyle(color: Colors.white),
         key: new Key('Admin number'),
         decoration: new InputDecoration(
           isDense: true,
@@ -74,7 +75,7 @@ Widget username() {
           ),
           prefixIcon: new Padding(
             padding: EdgeInsets.only(right: 15.0),
-            child: Icon(Icons.group_add),
+            child: Icon(Icons.group_add, color: Colors.white,),
           ),
           fillColor: select,
           filled: true,
@@ -93,6 +94,7 @@ Widget username() {
   Widget email() {
     Color select = Colors.indigo[400];
     return padded(child: new TextFormField(
+      style: new TextStyle(color: Colors.white),
         key: new Key('Admin number'),
         decoration: new InputDecoration(
           isDense: true,
@@ -102,7 +104,7 @@ Widget username() {
           ),
           prefixIcon: new Padding(
             padding: EdgeInsets.only(right: 15.0),
-            child: Icon(Icons.email),
+            child: Icon(Icons.email, color: Colors.white),
           ),
           fillColor: select,
           filled: true,

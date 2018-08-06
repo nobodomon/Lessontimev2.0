@@ -31,7 +31,6 @@ class _HomePanelState extends State<HomePanel>{
     return FutureBuilder(
       future: FirebaseLink.getUserOnceFs(fbuser.email),
       builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot){
-         
         if(snapshot.hasData){
           nUser = Users.fromSnapshot(snapshot.data);
           return new Scaffold(
@@ -57,22 +56,5 @@ class _HomePanelState extends State<HomePanel>{
           return Assets.loader();
         }
       });
-  }
-
-  Widget pwWarningGen(Users nUser){
-    if(nUser.lastLogin == null){
-      return new Padding(
-        padding: new EdgeInsets.fromLTRB(15.0,15.0,15.0,5.0),
-        child:new Card(
-          color: Colors.redAccent,
-          child: new ListTile(
-            leading: Icon(Icons.warning),
-            title: const Text("Please change your password."),
-          ),
-        )
-      );
-    }else{
-      return new Container();
-    }
   }
 }

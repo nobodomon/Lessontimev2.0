@@ -20,7 +20,7 @@ class Users {
   String group = '-';
 
   Users(this.email, this.userType){
-    this.adminNo = email.substring(0, email.length-18);
+    this.adminNo = email.split("@")[0].toUpperCase();
     this.lastLogin = null;
   }
 
